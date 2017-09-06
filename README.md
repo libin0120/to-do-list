@@ -9,28 +9,27 @@ application up and running.
 Things you may want to cover:
 
 * Ruby version
-ruby 2.3.1p112
+>> ruby 2.3.1p112
+>> Assume you already Ruby installed. If not, please check out: https://www.ruby-lang.org/en/documentation/installation/
 
 * System dependencies
+>> Install ruby
+>> Get the source code from https://github.com/libin0120/to-do-list
 
 * Configuration
-- rails g simple_form:install
+>> Run `bundle install`
 
 * Database creation
+>> Run `rake db:migrate`
 
 * Database initialization
 
 * How to run the test suite
+>> Run `rails test`
 
 * Services (job queues, cache servers, search engines, etc.)
+>> To start the server run `rails server`. 
+>> By default, server will runs at local `http://localhost:3000/`
 
 * Deployment instructions
 
-* ...
-
-* Run it locally for development purpose
-- Assume you already Ruby installed. If not, please check out: https://www.ruby-lang.org/en/documentation/installation/
-- Get the project source code at: https://github.com/libin0120/to-do-list
-- Go to project folder. Run `bundle install` to get all gems installed
-- We are using SQLite, so no need to install and connect to other database
-- 
