@@ -1,6 +1,13 @@
 <p id="notice"><%= notice %></p>
 
+
 <h1>Todos</h1>
+
+<ul class="nav nav-tabs">
+  <li class="<%= 'active' unless current_scopes.keys.include?(:completed) || current_scopes.keys.include?(:un_completed) %>"><a href="<%= todos_path %>">All</a></li>
+  <li class="<%= 'active' if current_scopes.keys.include? :completed %>"><a href="<%= todos_path(completed: true) %>">Completed</a></li>
+  <li class="<%= 'active' if current_scopes.keys.include? :un_completed %>"><a href="<%= todos_path(un_completed: true) %>">Not Completed</a></li>
+</ul>
 
 <table class="table">
   <thead>

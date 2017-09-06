@@ -1,10 +1,13 @@
 class TodosController < ApplicationController
   before_action :set_todo, only: [:show, :edit, :update, :destroy, :toggle]
 
+  has_scope :completed, :type => :boolean
+  has_scope :un_completed, :type => :boolean
+
   # GET /todos
   # GET /todos.json
   def index
-    @todos = Todo.all
+    @todos = apply_scopes(Todo).all
   end
 
   # GET /todos/1

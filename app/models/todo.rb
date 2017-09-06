@@ -19,6 +19,7 @@ class Todo < ApplicationRecord
 
   # --------------------  scopes
   scope :completed, -> { where(completed: true)}
+  scope :un_completed, -> { where(completed: false)}
 
 
   # --------------------  call backs
