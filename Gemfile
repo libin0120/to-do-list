@@ -38,6 +38,7 @@ gem 'jbuilder', '~> 2.5'
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platform: :mri
+  gem 'factory_girl_rails'
 end
 
 group :development do
@@ -52,8 +53,30 @@ end
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
+# Form helpers
+gem 'simple_form'
+
+# For easy list filtering
+gem 'has_scope'
+
+# For testing data
+gem 'ffaker'
+gem 'seedbank'
+
+# For font icons
+gem 'font-awesome-rails'
+
+
 # Bootstrap UI
 gem 'bootstrap-sass', '~> 3.3.6'
 gem 'momentjs-rails', '>= 2.9.0'
 gem 'bootstrap3-datetimepicker-rails', '~> 4.17.47'
 
+# Bootstrap helpers
+gem 'bh', '~> 1.2'
+
+# For inline editing
+gem 'x-editable-rails'
+
+# For environment configurations
+gem 'dotenv-rails' #, groups: [:development, :test]
