@@ -20,7 +20,7 @@ class TodosControllerTest < ActionDispatch::IntegrationTest
       post todos_url, params: { todo: { completed: @todo.completed, deadline: @todo.deadline, details: @todo.details, task: @todo.task } }
     end
 
-    assert_redirected_to todo_url(Todo.last)
+    assert_redirected_to todos_url
   end
 
   test "should show todo" do
@@ -35,7 +35,7 @@ class TodosControllerTest < ActionDispatch::IntegrationTest
 
   test "should update todo" do
     patch todo_url(@todo), params: { todo: { completed: @todo.completed, deadline: @todo.deadline, details: @todo.details, task: @todo.task } }
-    assert_redirected_to todo_url(@todo)
+    assert_redirected_to todos_url
   end
 
   test "should destroy todo" do

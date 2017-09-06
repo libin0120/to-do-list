@@ -7,4 +7,15 @@ class ActiveSupport::TestCase
   fixtures :all
 
   # Add more helper methods to be used by all tests here...
+  include FactoryGirl::Syntax::Methods
+end
+
+class ActionMailer::TestCase
+  include FactoryGirl::Syntax::Methods
+end
+
+
+class ActionDispatch::IntegrationTest
+  include FactoryGirl::Syntax::Methods
+#  include IntegrationTestHelper
 end
