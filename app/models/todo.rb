@@ -8,8 +8,6 @@ class Todo < ApplicationRecord
   validates :task, presence: true # Must has a task title, and deadline
 
 
-
-
   # --------------------  attributes
 
   # --------------------  default values
@@ -19,6 +17,8 @@ class Todo < ApplicationRecord
   # --------------------  nested attributes
 
   # --------------------  scopes
+  scope :completed, -> { where(completed: true)}
+
 
   # --------------------  call backs
 
@@ -37,6 +37,11 @@ class Todo < ApplicationRecord
 
   # --------------------  public
   public
+
+  def overdue?
+    deadline && deadline < Date.today
+  end
+
   # --------------------  protected
   protected
   # --------------------  private

@@ -15,14 +15,13 @@
 
   <tbody>
     <% @todos.each do |todo| %>
-      <tr>
+      <tr class="<%= "warning" if todo.overdue? %>">
         <td><%= todo.task %></td>
         <td><%= todo.deadline %></td>
         <td><%= todo.completed %></td>
         <td><%= todo.details %></td>
-        <td><%= link_to 'Show', todo %></td>
-        <td><%= link_to 'Edit', edit_todo_path(todo) %></td>
-        <td><%= link_to 'Destroy', todo, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Edit', edit_todo_path(todo), class: 'btn btn-default btn-sm' %></td>
+        <td><%= link_to 'Destroy', todo, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger btn-sm'  %></td>
       </tr>
     <% end %>
   </tbody>
@@ -30,4 +29,4 @@
 
 <br>
 
-<%= link_to 'New Todo', new_todo_path %>
+<%= link_to 'New Todo', new_todo_path, class: 'btn btn-default' %>
