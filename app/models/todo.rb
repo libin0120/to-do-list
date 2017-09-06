@@ -6,6 +6,7 @@ class Todo < ApplicationRecord
 
   # --------------------  validates
   validates :task, presence: true # Must has a task title, and deadline
+  validate :proper_deadline?, on: :create
 
 
   # --------------------  attributes
@@ -46,6 +47,12 @@ class Todo < ApplicationRecord
   protected
   # --------------------  private
   private
+
+  def proper_deadline?
+    if deadline
+      errors.add(:deadline, 'deadline must be geater than today') if deadline <  Date.today
+    end
+  end
 
   # ----------------------------------------------------------------------------
 end
