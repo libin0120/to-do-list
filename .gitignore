@@ -42,3 +42,24 @@ bower.json
 
 # Ignore Byebug command history file.
 .byebug_history
+
+# Ignore local environment settings, which may or may not contain private credentials.
+.env
+
+ # ignore Mac OS's random files
+.DS_Store
+
+# Ignore rubymine project file
+/.idea
+
+# Ignore Shrine file upload location
+public/uploads
+
+# Ignore rvm file and ruby version file until everyone start using it
+.ruby-gemset
+
+# Ignore figaro file for local environment setup
+config/application.yml
+
+# Ignore development purpose files
+routes.txt
