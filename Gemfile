@@ -1,9 +1,9 @@
 source 'https://rubygems.org'
 
-git_source(:github) do |repo_name|
-  repo_name = "#{repo_name}/#{repo_name}" unless repo_name.include?("/")
-  "https://github.com/#{repo_name}.git"
-end
+# git_source(:github) do |repo_name|
+#   repo_name = "#{repo_name}/#{repo_name}" unless repo_name.include?("/")
+#   "https://github.com/#{repo_name}.git"
+# end
 
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
@@ -53,8 +53,14 @@ end
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
+# Bootstrap UI
+gem 'bootstrap-sass', '~> 3.3.6'
+gem 'momentjs-rails', '>= 2.9.0'
+gem 'bootstrap3-datetimepicker-rails', '~> 4.17.47'
+
+
 # Form helpers
-gem 'simple_form'
+gem 'simple_form', '~> 3.4.0'
 
 # For easy list filtering
 gem 'has_scope'
@@ -67,10 +73,6 @@ gem 'seedbank'
 gem 'font-awesome-rails'
 
 
-# Bootstrap UI
-gem 'bootstrap-sass', '~> 3.3.6'
-gem 'momentjs-rails', '>= 2.9.0'
-gem 'bootstrap3-datetimepicker-rails', '~> 4.17.47'
 
 # Bootstrap helpers
 gem 'bh', '~> 1.2'

@@ -13,7 +13,7 @@ Things you may want to cover:
 * System dependencies
 
 * Configuration
-
+- rails g simple_form:install
 
 * Database creation
 
