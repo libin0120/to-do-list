@@ -1,14 +1,10 @@
-class Todo < ApplicationRecord
+class Sample < ApplicationRecord
   # ----------------------------------------------------------------------------
   # --------------------  includes
 
   # --------------------  constants definition
 
   # --------------------  validates
-  validates :task, presence: true # Must has a task title, and deadline
-
-
-
 
   # --------------------  attributes
 
