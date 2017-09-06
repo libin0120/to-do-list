@@ -1,0 +1,7 @@
+<tr class="<%= todo.completed ? "success" : ( todo.overdue? ? "warning" : "" ) %>" id="todo_<%= todo.id %>">
+  <td><%= todo.task %></td>
+  <td><%= todo.deadline %></td>
+  <td><%= link_to (todo.completed ? 'Yes' : 'No'), toggle_todo_path(todo), remote: true, data: todo.completed %></td>
+  <td><%= link_to 'Edit', edit_todo_path(todo), class: 'btn btn-default btn-sm' %></td>
+  <td><%= link_to 'Destroy', todo, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger btn-sm'  %></td>
+</tr>

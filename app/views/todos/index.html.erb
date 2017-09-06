@@ -8,21 +8,13 @@
       <th>Task</th>
       <th>Deadline</th>
       <th>Completed</th>
-      <th>Details</th>
       <th colspan="3"></th>
     </tr>
   </thead>
 
   <tbody>
     <% @todos.each do |todo| %>
-      <tr class="<%= todo.completed ? "success" : ( todo.overdue? ? "warning" : "" ) %>">
-        <td><%= todo.task %></td>
-        <td><%= todo.deadline %></td>
-        <td><%= todo.completed %></td>
-        <td><%= todo.details %></td>
-        <td><%= link_to 'Edit', edit_todo_path(todo), class: 'btn btn-default btn-sm' %></td>
-        <td><%= link_to 'Destroy', todo, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger btn-sm'  %></td>
-      </tr>
+      <%= render partial: todo , :locals => {todo: todo}%>
     <% end %>
   </tbody>
 </table>
