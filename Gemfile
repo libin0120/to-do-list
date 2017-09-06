@@ -84,3 +84,5 @@ gem 'x-editable-rails'
 
 # For environment configurations
 gem 'dotenv-rails' #, groups: [:development, :test]
+
+gem 'pg'
