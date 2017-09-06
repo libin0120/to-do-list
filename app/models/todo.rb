@@ -39,7 +39,7 @@ class Todo < ApplicationRecord
   public
 
   def overdue?
-    deadline && deadline < Date.today
+    !completed && (deadline && deadline < Date.today)
   end
 
   # --------------------  protected

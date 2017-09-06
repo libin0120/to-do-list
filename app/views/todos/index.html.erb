@@ -15,7 +15,7 @@
 
   <tbody>
     <% @todos.each do |todo| %>
-      <tr class="<%= "warning" if todo.overdue? %>">
+      <tr class="<%= todo.completed ? "success" : ( todo.overdue? ? "warning" : "" ) %>">
         <td><%= todo.task %></td>
         <td><%= todo.deadline %></td>
         <td><%= todo.completed %></td>
