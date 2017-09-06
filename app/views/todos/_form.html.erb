@@ -1,37 +1,14 @@
-<%= form_for(todo) do |f| %>
-  <% if todo.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(todo.errors.count, "error") %> prohibited this todo from being saved:</h2>
+<%= simple_form_for(@todo) do |f| %>
+  <%= f.error_notification %>
 
-      <ul>
-      <% todo.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
-
-  <div class="field">
-    <%= f.label :task %>
-    <%= f.text_field :task %>
+  <div class="form-inputs">
+    <%= f.input :task %>
+    <%= f.input :deadline %>
+    <%= f.input :completed %>
+    <%= f.input :details %>
   </div>
 
-  <div class="field">
-    <%= f.label :deadline %>
-    <%= f.date_select :deadline %>
-  </div>
-
-  <div class="field">
-    <%= f.label :completed %>
-    <%= f.check_box :completed %>
-  </div>
-
-  <div class="field">
-    <%= f.label :details %>
-    <%= f.text_area :details %>
-  </div>
-
-  <div class="actions">
-    <%= f.submit %>
+  <div class="form-actions">
+    <%= f.button :submit %>
   </div>
 <% end %>
