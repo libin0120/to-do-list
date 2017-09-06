@@ -20,8 +20,6 @@ class TodoTest < ActiveSupport::TestCase
 
     todo.deadline = Date.today - 3
 
-    byebug
-
     r = todo.save
 
     assert_equal r, false
@@ -37,6 +35,31 @@ class TodoTest < ActiveSupport::TestCase
     assert_equal r, true
   end
 
+  def test_task_is_overdue
+    todo = create(:todo)
+
+    todo.deadline = Date.today - 3
+
+    assert_equal todo.overdue?, true
+  end
+
+  def test_task_not_overdue_if_no_deadline
+    todo = create(:todo)
+
+    todo.deadline = nil
+
+    refute_equal todo.overdue?, true
+  end
+
+  def test_task_not_overdue_if_completed
+    todo = create(:todo)
+
+    todo.deadline = Date.today - 3
+
+    todo.completed = true
+
+    refute_equal todo.overdue?, true
+  end
 
 
 end

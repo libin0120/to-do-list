@@ -50,7 +50,7 @@ class Todo < ApplicationRecord
 
   def proper_deadline?
     if deadline
-      errors.add(:deadline, 'deadline must be geater than today') if deadline <  Date.today
+      errors.add(:deadline, 'deadline must be greater than today') if deadline <  Date.today
     end
   end
 
