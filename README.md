@@ -13,7 +13,7 @@ Things you may want to cover:
 >> Assume you already Ruby installed. If not, please check out: https://www.ruby-lang.org/en/documentation/installation/
 
 * System dependencies
->> Install ruby
+
 >> Get the source code from https://github.com/libin0120/to-do-list
 
 * Configuration
