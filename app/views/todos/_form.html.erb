@@ -12,3 +12,14 @@
     <%= f.button :submit %>
   </div>
 <% end %>
+
+<script>
+  $(document).ready(
+      function() {
+        $('.date').datetimepicker({
+              format: 'YYYY/MM/DD'
+            }
+        );
+      }
+  );
+</script>

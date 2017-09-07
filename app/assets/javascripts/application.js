@@ -18,11 +18,4 @@
 //= require bootstrap-datetimepicker
 //= require_tree .
 
-$(document).ready(
-  function() {
-    $('.date').datetimepicker({
-        format: 'YYYY/MM/DD'
-    }
-    );
-  }
-);
+
