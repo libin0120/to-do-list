@@ -119,4 +119,25 @@ class TodoTest < ActiveSupport::TestCase
     assert_equal Todo.un_completed.count, Todo.count - Todo.completed.count
   end
 
+
+  def test_children_udpate_parent
+    parent = create(:todo)
+
+    c1 = create(:todo)
+    c2 = create(:todo)
+    c3 = create(:todo)
+
+    c1.parent = parent
+    c2.parent = parent
+    c3.parent = parent
+
+    c1.update_attribute(:completed, true)
+    c2.update_attribute(:completed, true)
+    c3.update_attribute(:completed, true)
+
+
+    assert_equal parent.completed,  true
+
+  end
+
 end

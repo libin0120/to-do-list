@@ -24,6 +24,22 @@ class Todo < ApplicationRecord
 
   # --------------------  call backs
 
+  # update parent
+  after_save do
+    if parent # only if we have parent
+      parent_completed = true # ?
+      parent.children.each do |c|
+        parent_completed &&= c.completed
+      end
+      parent.update_attribute(:completed, parent_completed)
+    end
+  end
+
+
+  # after_save do
+  #
+  # end
+
   # --------------------  attachments
 
   # --------------------  functions (call back)
