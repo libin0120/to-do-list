@@ -7,7 +7,8 @@ class TodosController < ApplicationController
   # GET /todos
   # GET /todos.json
   def index
-    @todos = apply_scopes(Todo).all
+    @q = Todo.ransack(params[:q])
+    @todos = apply_scopes(@q.result).all
   end
 
   # GET /todos/1

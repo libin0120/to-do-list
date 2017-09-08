@@ -12,9 +12,9 @@
 <table class="table">
   <thead>
     <tr>
-      <th>Task</th>
-      <th>Deadline</th>
-      <th>Completed</th>
+      <th><%= sort_link @q, :task %></th>
+      <th><%= sort_link @q, :deadline %></th>
+      <th><%= sort_link @q, :completed %></th>
       <th colspan="3"></th>
     </tr>
   </thead>
