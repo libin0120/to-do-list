@@ -36,6 +36,7 @@ class Todo < ApplicationRecord
 
   # --------------------  extra
 
+  acts_as_tree order: 'task'
 
   # --------------------  public
   public

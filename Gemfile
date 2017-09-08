@@ -88,3 +88,5 @@ gem 'dotenv-rails' #, groups: [:development, :test]
 gem 'pg'
 
 gem 'ransack'
+
+gem 'acts_as_tree'
