@@ -131,7 +131,17 @@ class TodoTest < ActiveSupport::TestCase
     parent.children << c3
 
     c1.update_attribute(:completed, true)
-    c2.update_attribute(:completed, false)
+    c2.update_attribute(:completed, true)
+    c3.update_attribute(:completed, true)
+
+    parent.reload
+    assert_equal parent.completed, true
+
+    c3.update_attribute(:completed, false)
+
+    parent.reload
+    assert_equal parent.completed, false
+
     c3.update_attribute(:completed, true)
 
     parent.reload
@@ -161,6 +171,16 @@ class TodoTest < ActiveSupport::TestCase
     assert_equal c1.completed,  true
     assert_equal c2.completed,  true
     assert_equal c3.completed,  true
+
+    parent.update_attribute(:completed, false)
+
+    c1.reload
+    c2.reload
+    c3.reload
+
+    assert_equal c1.completed,  false
+    assert_equal c2.completed,  false
+    assert_equal c3.completed,  false
   end
 
 end
