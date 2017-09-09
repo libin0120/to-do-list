@@ -4,7 +4,7 @@
 <h1>Todos</h1>
 
 <ul class="nav nav-tabs">
-  <li class="<%= 'active' unless current_scopes.keys.include?(:completed) || current_scopes.keys.include?(:un_completed) %>"><a href="<%= todos_path %>">All</a></li>
+  <li class="<%= 'active' if current_scopes.keys.include?(:completed) || current_scopes.keys.include?(:un_completed) %>"><a href="<%= todos_path %>">All</a></li>
   <li class="<%= 'active' if current_scopes.keys.include? :completed %>"><a href="<%= todos_path(completed: true) %>">Completed</a></li>
   <li class="<%= 'active' if current_scopes.keys.include? :un_completed %>"><a href="<%= todos_path(un_completed: true) %>">Not Completed</a></li>
 </ul>
@@ -29,3 +29,5 @@
 <br>
 
 <%= link_to 'New Todo', new_todo_path, class: 'btn btn-default' %>
+
+<div id="results"></div>
