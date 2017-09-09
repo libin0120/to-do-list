@@ -122,22 +122,45 @@ class TodoTest < ActiveSupport::TestCase
 
   def test_children_udpate_parent
     parent = create(:todo)
-
     c1 = create(:todo)
     c2 = create(:todo)
     c3 = create(:todo)
 
-    c1.parent = parent
-    c2.parent = parent
-    c3.parent = parent
+    parent.children << c1
+    parent.children << c2
+    parent.children << c3
 
     c1.update_attribute(:completed, true)
-    c2.update_attribute(:completed, true)
+    c2.update_attribute(:completed, false)
     c3.update_attribute(:completed, true)
 
+    parent.reload
+    assert_equal parent.completed, true
+  end
 
-    assert_equal parent.completed,  true
+  def test_parent_udpate_children
+    parent = create(:todo)
+    c1 = create(:todo)
+    c2 = create(:todo)
+    c3 = create(:todo)
 
+    parent.children << c1
+    parent.children << c2
+    parent.children << c3
+
+    c1.update_attribute(:completed, false)
+    c2.update_attribute(:completed, true)
+    c3.update_attribute(:completed, false)
+
+    parent.update_attribute(:completed, true)
+
+    c1.reload
+    c2.reload
+    c3.reload
+
+    assert_equal c1.completed,  true
+    assert_equal c2.completed,  true
+    assert_equal c3.completed,  true
   end
 
 end

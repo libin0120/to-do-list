@@ -27,18 +27,23 @@ class Todo < ApplicationRecord
   # update parent
   after_save do
     if parent # only if we have parent
-      parent_completed = true # ?
+      parent_completed = true
       parent.children.each do |c|
         parent_completed &&= c.completed
       end
-      parent.update_attribute(:completed, parent_completed)
+      parent.update_column(:completed, parent_completed)
     end
   end
 
 
-  # after_save do
-  #
-  # end
+  # update children
+  after_save do
+    if children
+      children.each do |c|
+        c.update_column(:completed, self.completed)
+      end
+    end
+  end
 
   # --------------------  attachments
 
