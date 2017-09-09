@@ -86,3 +86,5 @@ gem 'x-editable-rails'
 gem 'dotenv-rails' #, groups: [:development, :test]
 
 gem 'pg'
+
+gem 'ransack'
