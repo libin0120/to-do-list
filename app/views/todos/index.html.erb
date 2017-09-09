@@ -3,11 +3,22 @@
 
 <h1>Todos</h1>
 
+<%= search_form_for @q do |f| %>
+    <%= content_tag :div, class: 'row' do %>
+      <%= content_tag :div, class: 'col-xs-2 pull-right' do %>
+        <%= f.search_field :task_or_details_cont, class: 'form-control ol-xs-2' %>
+      <% end %>
+    <% end %>
+<% end %>
+
 <ul class="nav nav-tabs">
   <li class="<%= 'active' if current_scopes.keys.include?(:completed) || current_scopes.keys.include?(:un_completed) %>"><a href="<%= todos_path %>">All</a></li>
   <li class="<%= 'active' if current_scopes.keys.include? :completed %>"><a href="<%= todos_path(completed: true) %>">Completed</a></li>
   <li class="<%= 'active' if current_scopes.keys.include? :un_completed %>"><a href="<%= todos_path(un_completed: true) %>">Not Completed</a></li>
 </ul>
+
+
+
 
 <table class="table">
   <thead>
